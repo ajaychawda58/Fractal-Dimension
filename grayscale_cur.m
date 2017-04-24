@@ -13,11 +13,8 @@ while l<(M/2)
     r = l;
     blockSizeR = r;
     blockSizeC = r;
-    
-    
-    sliceNumber = 1;
     ld = (l * 256)/M;
-    nr = zeros(1,l*l);
+    nr = 0;
     for row = 1:blockSizeR:M
         for col = 1:blockSizeC:M
             row1 = row;
@@ -26,22 +23,15 @@ while l<(M/2)
             col2 = col1 + blockSizeC - 1;
             %extract block
             oneBlock = im(row1:row2,col1:col2);
-%             subplot(2, 2, sliceNumber);
-%             imshow(oneBlock);
-%             sliceNumber = sliceNumber + 1;
-%             fprintf('%d   %d   %d   %d\n',row1,row2,col1,col2);
-
             maxI = max(max(oneBlock));
             minI = min(min(oneBlock));
             %number of boxes
-            nb = ceil(maxI / ld);
+            nb = ceil(double(maxI) / ld);
             if maxI == minI
-                nr(1,sliceNumber) = 1;
+                nr = nr + 1;
             else
-                nr(1,sliceNumber) = ((maxI - minI)/ld);
+                nr = nr + nb;
             end 
-            sliceNumber = sliceNumber + 1;
-%             p=maxI-minI
         end
     end
     Nr = [Nr sum(nr)];
