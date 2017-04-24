@@ -1,5 +1,5 @@
 
-rgbImage = imread('F:\c4.jpg');
+rgbImage = imread('F:\c4.jpg'); % image address
 subplot(3, 1, 1);
 imshow(rgbImage);
 % set(gcf, 'units','normalized','outerposition',[0 0 1 1]);
@@ -19,7 +19,7 @@ q = 0.21*double(rm) + 0.72*double(gm) + 0.07*double(bm);
 
 Nr = [];
 scale = [];
-M = 256;
+M = 256; %size of image in power of 2
 for l=5:10:200
     blockSizeR = l; % Rows in block.
     blockSizeC = l; % Columns in block
@@ -48,16 +48,6 @@ for l=5:10:200
     for r = 1 : numPlotsR
         for c = 1 : numPlotsC
             oneBlock = ca{r,c};
-%             subplot(numPlotsR, numPlotsC, sliceNumber);
-%             imshow(oneBlock);
-%     for row = 1:blockSizeR:M
-%         for col = 1:blockSizeC:M
-%             row1 = row;
-%             row2 = row1 + blockSizeR - 1;
-%             col1 = col;
-%             col2 = col1 + blockSizeC - 1;
-%             %extract block
-%             oneBlock = rgbImage(row1:row2,col1:col2);
             maxI = sum(max(max(oneBlock)))/3;
             minI = sum(min(min(oneBlock)))/3;
             hb = ceil(double(maxI)/ ld);
