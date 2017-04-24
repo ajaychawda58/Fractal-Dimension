@@ -36,25 +36,17 @@ while l<=(M/2)
             col2 = col1 + blockSizeC - 1;
             %extract block
             oneBlock = im(row1:row2,col1:col2);
-%             subplot(2, 2, sliceNumber);
-%             imshow(oneBlock);
-%             sliceNumber = sliceNumber + 1;
-%             fprintf('%d   %d   %d   %d\n',row1,row2,col1,col2);
-
             maxI = sum(max(max(oneBlock)))/3;
             minI = sum(min(min(oneBlock)))/3;
             
             %number of boxes
             hb = ceil(double(maxI) / ld);
-%             fprintf('%d   %d   %d\n',maxI,minI,hb);
-%             nr(1,sliceNumber) = ((maxI - minI)/ld);
             if maxI == minI
                 nr = nr + 1;
             else
                 nr = nr + hb;
             end 
             sliceNumber = sliceNumber + 1;
-%             p=maxI-minI
         end
     end
     Nr = [Nr nr];
