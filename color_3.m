@@ -1,4 +1,4 @@
-im=imread('F:\c1.jpg');
+im=imread('F:\c1.jpg'); %image address
 im = rgb2gray(im);
 subplot(3, 3,1);
 imshow(im);
@@ -8,16 +8,12 @@ G=256;
 scale=[];
 Nr=[];
 l=2;
-% n=1;
 while l<=(M/2)
     r = l;
     blockSizeR = r;
     blockSizeC = r;
-    
-    
-    sliceNumber = 1;
     ld = (l * 256)/M;
-    nr = zeros(1,l*l);
+    nr = 0;
     for row = 1:blockSizeR:M
         for col = 1:blockSizeC:M
             row1 = row;
@@ -26,32 +22,25 @@ while l<=(M/2)
             col2 = col1 + blockSizeC - 1;
             %extract block
             oneBlock = im(row1:row2,col1:col2);
-%             subplot(2, 2, sliceNumber);
-%             imshow(oneBlock);
-%             sliceNumber = sliceNumber + 1;
-%             fprintf('%d   %d   %d   %d\n',row1,row2,col1,col2);
-
             maxI = max(max(oneBlock));
             minI = min(min(oneBlock));
             %number of boxes
-            nb = ceil(maxI / ld);
+            nb = ceil(double(maxI) / ld);
             if maxI == minI
-                nr(1,sliceNumber) = 1;
+                nr = nr + 1;
             else
-                nr(1,sliceNumber) = ((maxI - minI)/ld);
+                nr = nr + nb;
             end 
-            sliceNumber = sliceNumber + 1;
-%             p=maxI-minI
         end
     end
-    Nr = [Nr sum(nr)];
+    Nr = [Nr nr];
     scale = [scale M/l];
     l = l * 2;
 %     n = n + 1;
 end
 subplot(3, 1, 2);
-N = log(Nr)
-S = log(scale)
+N = log(Nr)./log(2);
+S = log(scale)./log(2);
 p = polyfit(S, N, 1);
 f = polyval(p, S);
 fprintf('Dimension = %d\n',p(1));
