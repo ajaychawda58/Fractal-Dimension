@@ -7,4 +7,4 @@ For grayscale.m, it uses the box count method as its base and then using the gra
 For color images, three new methods are developed. 
 These codes can be used for further study of fractal dimension of images and can be used for classification purposes, tumour detection, etc. The codes are tested and ready to work. These codes are used for further study in the application of fractal dimesnion in various fields. 
 
-All the codes are written in MATLAB language. 
+All the codes are written in MATLAB. 
