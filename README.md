@@ -10,3 +10,15 @@ These codes can be used for further study of fractal dimension of images and can
 All the codes are written in MATLAB. 
 
 Jupyter Notebook for color_1.m has been added. (Python3 version)
+
+
+## Reference
+Please consider citing our work if you found this repository to be helpful.
+```
+@article{
+    Author = {Sumitra Kisan and Sarojananda Mishra and Ajay Chawda and Sanjay Nayak},
+    Title = {Estimation of Fractal Dimension in Different Color Model},
+    Journal = {International Journal of Knowledge Discovery in BioInformatics},
+    Year = {2018},
+}
+```
