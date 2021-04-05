@@ -9,4 +9,4 @@ These codes can be used for further study of fractal dimension of images and can
 
 All the codes are written in MATLAB. 
 
-## Jupyter Notebook for color_1.m has been added. (Python3 version)
+Jupyter Notebook for color_1.m has been added. (Python3 version)
