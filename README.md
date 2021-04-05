@@ -8,3 +8,5 @@ For color images, three new methods are developed.
 These codes can be used for further study of fractal dimension of images and can be used for classification purposes, tumour detection, etc. The codes are tested and ready to work. These codes are used for further study in the application of fractal dimesnion in various fields. 
 
 All the codes are written in MATLAB. 
+
+## Jupyter Notebook for color_1.m has been added. (Python3 version)
